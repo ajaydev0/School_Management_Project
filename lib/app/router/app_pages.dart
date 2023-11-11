@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
 
-import '../modules/auth/sign_in/binding/sign_in_binding.dart';
-import '../modules/auth/sign_in/view/sign_in_view.dart';
+import '../modules/SelectUserPage/bindings/select_user_page_binding.dart';
+import '../modules/SelectUserPage/views/select_user_page_view.dart';
+import '../modules/SignInPage/bindings/sign_in_page_binding.dart';
+import '../modules/SignInPage/views/sign_in_page_view.dart';
 import '../modules/onboard/bindings/onboard_binding.dart';
 import '../modules/onboard/views/onboard_view.dart';
 import '../modules/splash_screen/binding/splash_binding.dart';
 import '../modules/splash_screen/view/splash_view.dart';
-import '../modules/userSelectPage/bindings/user_select_page_binding.dart';
-import '../modules/userSelectPage/views/user_select_page_view.dart';
 
 part 'app_routes.dart';
 
@@ -20,19 +20,19 @@ class AppPages {
       binding: SplashBinding(),
     ),
     GetPage(
-      name: _Path.signInPage,
-      page: () => const SignInView(),
-      binding: SignInBinding(),
-    ),
-    GetPage(
       name: Routes.onBoard,
       page: () => const OnboardView(),
       binding: OnboardBinding(),
     ),
     GetPage(
-      name: Routes.USER_SELECT_PAGE,
-      page: () => const UserSelectPageView(),
-      binding: UserSelectPageBinding(),
+      name: Routes.selectUserPage,
+      page: () => const SelectUserPageView(),
+      binding: SelectUserPageBinding(),
+    ),
+    GetPage(
+      name: Routes.signInPage,
+      page: () => const SignInPageView(),
+      binding: SignInPageBinding(),
     ),
   ];
 }

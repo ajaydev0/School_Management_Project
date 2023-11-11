@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
+import 'package:school_management_app/app/const/colors.dart';
+import 'package:school_management_app/app/router/app_pages.dart';
 import '../controllers/onboard_controller.dart';
 import '../model/onBoardModel.dart';
 
@@ -13,25 +14,42 @@ class OnboardView extends GetView<OnboardController> {
       () => Scaffold(
           appBar: AppBar(
             leading: Padding(
-              padding: const EdgeInsets.only(top: 20, left: 20),
-              child: Text(
-                "${controller.selectedIndex.value + 1}/3",
-                style: const TextStyle(color: Colors.black),
+              padding: const EdgeInsets.only(top: 25, left: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Text(
+                    "${controller.selectedIndex.value + 1}",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    '/' + onBoardList.length.toString(),
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  )
+                ],
               ),
             ),
             actions: [
               controller.selectedIndex.value == 2
                   ? Container()
-                  : TextButton(
-                      onPressed: () {
-                        controller.pageController.animateToPage(2,
-                            duration: const Duration(milliseconds: 400),
-                            curve: Curves.linear);
-                      },
-                      child: const Text(
-                        "Skip",
-                        style: TextStyle(color: Colors.black),
-                      )),
+                  : Padding(
+                      padding: const EdgeInsets.only(top: 20, right: 10),
+                      child: TextButton(
+                          onPressed: () {
+                            controller.pageController.animateToPage(2,
+                                duration: const Duration(milliseconds: 400),
+                                curve: Curves.linear);
+                          },
+                          child: const Text(
+                            "Skip",
+                            style: TextStyle(color: Colors.black),
+                          )),
+                    ),
               const SizedBox(
                 width: 20,
               )
@@ -51,19 +69,21 @@ class OnboardView extends GetView<OnboardController> {
                     var data = onBoardList[index];
                     return Column(
                       children: [
-                        Padding(
-                            padding: const EdgeInsets.only(left: 1, right: 1),
-                            child: Image.asset(data.imageUrl)),
+                        Container(
+                          height: 380,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(data.imageUrl))),
+                        ),
                         Text(
                           data.title,
                           style: const TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(
-                              left: 30, right: 30, top: 20),
-                          child: Text(data.description),
-                        ),
+                            padding: const EdgeInsets.only(
+                                left: 30, right: 30, top: 15),
+                            child: Text(data.description)),
                       ],
                     );
                   },
@@ -82,33 +102,37 @@ class OnboardView extends GetView<OnboardController> {
                                 : 15,
                             duration: const Duration(milliseconds: 300),
                             decoration: BoxDecoration(
-                                color: Colors.blue,
+                                color: Kcolor.amber,
                                 borderRadius: BorderRadius.circular(10)),
+                            child: Stack(children: [
+                              Center(
+                                child: AnimatedContainer(
+                                  height: 8,
+                                  width: controller.selectedIndex.value == index
+                                      ? 23
+                                      : 8,
+                                  duration: const Duration(milliseconds: 300),
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.3),
+                                      borderRadius: BorderRadius.circular(10)),
+                                ),
+                              ),
+                              Center(
+                                child: AnimatedContainer(
+                                  height: 5,
+                                  width: controller.selectedIndex.value == index
+                                      ? 20
+                                      : 5,
+                                  duration: const Duration(milliseconds: 300),
+                                  decoration: BoxDecoration(
+                                      color: Kcolor.amber,
+                                      borderRadius: BorderRadius.circular(10)),
+                                ),
+                              ),
+                            ]),
                           ),
                         )),
               ),
-
-              // Obx(
-              //   () => SizedBox(
-              //     height: 20,
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         Indigator(
-              //             color: Colors.blue,
-              //             width: controller.selectedIndex.value == 0 ? 20 : 10),
-              //         const SizedBox(width: 5),
-              //         Indigator(
-              //             color: Colors.blue,
-              //             width: controller.selectedIndex.value == 1 ? 20 : 10),
-              //         const SizedBox(width: 5),
-              //         Indigator(
-              //             color: Colors.blue,
-              //             width: controller.selectedIndex.value == 2 ? 20 : 10),
-              //       ],
-              //     ),
-              //   ),
-              // ),
               const SizedBox(height: 30),
               controller.selectedIndex.value == 2
                   ? SizedBox(
@@ -116,33 +140,31 @@ class OnboardView extends GetView<OnboardController> {
                       width: 250,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            elevation: 5,
-                            backgroundColor: Colors.blue.withOpacity(.8),
-                          ),
+                              elevation: 5,
+                              backgroundColor: Kcolor.amber,
+                              foregroundColor: Colors.black),
                           onPressed: () {
-                            print("Go to Sign In Page");
+                            Get.toNamed(Routes.selectUserPage);
                           },
-                          child: const Text(
-                            "Get Started",
-                            style: TextStyle(color: Colors.white),
-                          )))
+                          child: const Text("Get Started",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16))))
                   : SizedBox(
                       height: 50,
                       width: 250,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            elevation: 5,
-                            backgroundColor: Colors.blue.withOpacity(.8),
-                          ),
+                              elevation: 5,
+                              backgroundColor: Kcolor.amber,
+                              foregroundColor: Colors.black),
                           onPressed: () {
                             controller.pageController.nextPage(
                                 duration: const Duration(milliseconds: 400),
                                 curve: Curves.linear);
                           },
-                          child: const Text(
-                            "Next",
-                            style: TextStyle(color: Colors.white),
-                          ))),
+                          child: const Text("Next",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16)))),
             ],
           )),
     );

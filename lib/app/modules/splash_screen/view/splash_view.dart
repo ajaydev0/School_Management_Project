@@ -15,14 +15,15 @@ class SplashView extends GetView<SplashController> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.school,
-            size: 120,
+          Container(
+            height: 150,
+            decoration: const BoxDecoration(
+                image: DecorationImage(image: AssetImage("assets/logo.png"))),
           ),
-          SizedBox(height: 5),
-          SizedBox(
-              height: 35,
-              width: 35,
+          const SizedBox(height: 10),
+          const SizedBox(
+              height: 30,
+              width: 30,
               child: FittedBox(child: CupertinoActivityIndicator())),
         ],
       )),
