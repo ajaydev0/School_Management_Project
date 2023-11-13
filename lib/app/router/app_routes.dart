@@ -6,6 +6,9 @@ abstract class Routes {
   static const onBoard = _Path.onBoardPage;
   static const selectUserPage = _Path.selectUserPage;
   static const signInPage = _Path.signInPage;
+  static const NAV_PAGE = '/nav-page';
+  static const HOME_PAGE = '/home-page';
+  static const PROFILE_PAGE = '/profile-page';
 }
 
 abstract class _Path {

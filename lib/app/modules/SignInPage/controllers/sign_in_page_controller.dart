@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:school_management_app/app/router/app_pages.dart';
 
 class SignInPageController extends GetxController {
   bool isUser = Get.arguments;
@@ -24,6 +25,7 @@ class SignInPageController extends GetxController {
 
   logInClick() {
     if (fromkey.currentState!.validate()) {
+      Get.toNamed(Routes.NAV_PAGE);
       print("Validate");
     }
     return null;

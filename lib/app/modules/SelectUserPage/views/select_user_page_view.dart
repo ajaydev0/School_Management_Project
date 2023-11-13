@@ -20,10 +20,10 @@ class SelectUserPageView extends GetView<SelectUserPageController> {
                 image: DecorationImage(image: AssetImage("assets/logo.png"))),
           ),
           const SizedBox(height: 10),
-          const Text(
+          Text(
             "Select User",
             style: TextStyle(
-                color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
+                color: Kcolor.black, fontSize: 25, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 30),
           Row(
@@ -40,7 +40,7 @@ class SelectUserPageView extends GetView<SelectUserPageController> {
                     height: 120,
                     width: 120,
                     decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
+                        border: Border.all(color: Kcolor.white),
                         borderRadius: BorderRadius.circular(20),
                         color: Kcolor.amber,
                         image: const DecorationImage(
@@ -67,7 +67,7 @@ class SelectUserPageView extends GetView<SelectUserPageController> {
                     height: 120,
                     width: 120,
                     decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white),
+                        border: Border.all(color: Kcolor.white),
                         borderRadius: BorderRadius.circular(20),
                         color: Kcolor.amber,
                         image: const DecorationImage(

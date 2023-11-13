@@ -23,13 +23,13 @@ class OnboardView extends GetView<OnboardController> {
                   Text(
                     "${controller.selectedIndex.value + 1}",
                     style: TextStyle(
-                        color: Colors.black,
+                        color: Kcolor.black,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    '/' + onBoardList.length.toString(),
-                    style: TextStyle(color: Colors.black, fontSize: 15),
+                    '/${onBoardList.length}',
+                    style: TextStyle(color: Kcolor.black, fontSize: 15),
                   )
                 ],
               ),
@@ -45,9 +45,9 @@ class OnboardView extends GetView<OnboardController> {
                                 duration: const Duration(milliseconds: 400),
                                 curve: Curves.linear);
                           },
-                          child: const Text(
+                          child: Text(
                             "Skip",
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: Kcolor.black),
                           )),
                     ),
               const SizedBox(
@@ -113,7 +113,7 @@ class OnboardView extends GetView<OnboardController> {
                                       : 8,
                                   duration: const Duration(milliseconds: 300),
                                   decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(.3),
+                                      color: Kcolor.black.withOpacity(.3),
                                       borderRadius: BorderRadius.circular(10)),
                                 ),
                               ),
@@ -142,7 +142,7 @@ class OnboardView extends GetView<OnboardController> {
                           style: ElevatedButton.styleFrom(
                               elevation: 5,
                               backgroundColor: Kcolor.amber,
-                              foregroundColor: Colors.black),
+                              foregroundColor: Kcolor.black),
                           onPressed: () {
                             Get.toNamed(Routes.selectUserPage);
                           },
@@ -156,7 +156,7 @@ class OnboardView extends GetView<OnboardController> {
                           style: ElevatedButton.styleFrom(
                               elevation: 5,
                               backgroundColor: Kcolor.amber,
-                              foregroundColor: Colors.black),
+                              foregroundColor: Kcolor.black),
                           onPressed: () {
                             controller.pageController.nextPage(
                                 duration: const Duration(milliseconds: 400),
