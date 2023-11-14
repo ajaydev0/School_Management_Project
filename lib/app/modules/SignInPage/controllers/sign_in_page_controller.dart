@@ -25,7 +25,7 @@ class SignInPageController extends GetxController {
 
   logInClick() {
     if (fromkey.currentState!.validate()) {
-      Get.toNamed(Routes.NAV_PAGE);
+      Get.offAllNamed(Routes.NAV_PAGE);
       print("Validate");
     }
     return null;

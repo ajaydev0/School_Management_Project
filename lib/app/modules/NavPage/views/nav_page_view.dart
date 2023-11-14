@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:school_management_app/app/const/colors.dart';
 
 import '../controllers/nav_page_controller.dart';
+import '../widget/logOutBox.dart';
 
 class NavPageView extends GetView<NavPageController> {
   const NavPageView({Key? key}) : super(key: key);
@@ -11,6 +11,7 @@ class NavPageView extends GetView<NavPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       drawer: SafeArea(
         child: Drawer(
           child: Column(
@@ -26,11 +27,14 @@ class NavPageView extends GetView<NavPageController> {
                       children: [
                         const SizedBox(width: 15),
                         CircleAvatar(
-                          radius: 50,
-                          backgroundColor: Kcolor.black,
-                          backgroundImage:
-                              const AssetImage("assets/student.png"),
-                        ),
+                            radius: 50,
+                            backgroundColor: Kcolor.black,
+                            child: CircleAvatar(
+                              radius: 45,
+                              backgroundColor: Kcolor.black,
+                              backgroundImage:
+                                  const AssetImage("assets/student.png"),
+                            )),
                         const SizedBox(width: 15),
                         const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -43,7 +47,7 @@ class NavPageView extends GetView<NavPageController> {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              "Designation: Instuctor",
+                              "Designation: Instructor",
                               style: TextStyle(fontSize: 13),
                             ),
                             Text(
@@ -76,9 +80,18 @@ class NavPageView extends GetView<NavPageController> {
                 padding: const EdgeInsets.only(bottom: 40),
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                        elevation: 5,
+                        backgroundColor: Kcolor.amber,
                         foregroundColor: Kcolor.black,
                         shape: const LinearBorder()),
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return logOutBox(context);
+                        },
+                      );
+                    },
                     child: const Text("LogOut")),
               ),
             ],
@@ -86,12 +99,15 @@ class NavPageView extends GetView<NavPageController> {
         ),
       ),
       appBar: AppBar(
+        backgroundColor: Colors.grey[100],
         title: const Text('AppBar'),
         centerTitle: true,
         actions: [
           Stack(children: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.selectIndex.value = 2;
+                },
                 icon: Icon(
                   Icons.notifications,
                   size: 26,
@@ -135,7 +151,7 @@ class NavPageView extends GetView<NavPageController> {
               topLeft: Radius.circular(30), topRight: Radius.circular(30)),
           child: BottomAppBar(
             height: 62,
-            color: Colors.grey.withOpacity(.2),
+            color: Colors.grey[100],
             shape: const CircularNotchedRectangle(),
             notchMargin: 5,
             child: Row(

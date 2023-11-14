@@ -9,6 +9,9 @@ abstract class Routes {
   static const NAV_PAGE = '/nav-page';
   static const HOME_PAGE = '/home-page';
   static const PROFILE_PAGE = '/profile-page';
+  static const ALL_EVENTS = '/all-events';
+  static const EVENT_DETAILS = '/event-details';
+  static const NOTIFICATIONS_PAGE = '/notifications-page';
 }
 
 abstract class _Path {
