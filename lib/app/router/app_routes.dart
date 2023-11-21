@@ -12,6 +12,12 @@ abstract class Routes {
   static const ALL_EVENTS = '/all-events';
   static const EVENT_DETAILS = '/event-details';
   static const NOTIFICATIONS_PAGE = '/notifications-page';
+  static const ACADEMIC = '/academic';
+  static const ATTENDANCE = '/attendance';
+  static const EXAM = '/exam';
+  static const HOME_WORK = '/home-work';
+  static const ASSIGNMENT = '/assignment';
+  static const REPORT_CARD = '/report-card';
 }
 
 abstract class _Path {

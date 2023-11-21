@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:school_management_app/app/const/colors.dart';
+import 'package:school_management_app/app/modules/Home_icon_Buttons_Pages/Academic/views/academic_view.dart';
 import 'package:school_management_app/app/router/app_pages.dart';
 
 import '../../NavPage/widget/ExitBox.dart';
 import '../controllers/home_page_controller.dart';
-import '../widget/HomeIocnBox.dart';
+import '../widget/Home_iocnBox.dart';
 import '../widget/UpComeingEvents.dart';
 
 class HomePageView extends GetView<HomePageController> {
@@ -77,14 +78,14 @@ class HomePageView extends GetView<HomePageController> {
                         icon: Icons.school,
                         label: "Academic",
                         onTap: () {
-                          print("Academic");
+                          Get.toNamed(Routes.ACADEMIC);
                         },
                       ),
                       HomeIconBox(
                         icon: Icons.calendar_month,
                         label: "Attendance",
                         onTap: () {
-                          print("Attendance");
+                          Get.toNamed(Routes.ATTENDANCE);
                         },
                       ),
                       HomeIconBox(

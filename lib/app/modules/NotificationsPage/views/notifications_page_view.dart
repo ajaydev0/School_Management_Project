@@ -110,7 +110,7 @@ class NotificationsPageView extends GetView<NotificationsPageController> {
                     },
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
               ],
             )));
   }

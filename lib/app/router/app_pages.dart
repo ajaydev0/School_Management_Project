@@ -1,11 +1,22 @@
 import 'package:get/get.dart';
-
 import '../modules/AllEvents/bindings/all_events_binding.dart';
 import '../modules/AllEvents/views/all_events_view.dart';
 import '../modules/EventDetails/bindings/event_details_binding.dart';
 import '../modules/EventDetails/views/event_details_view.dart';
 import '../modules/HomePage/bindings/home_page_binding.dart';
 import '../modules/HomePage/views/home_page_view.dart';
+import '../modules/Home_icon_Buttons_Pages/Academic/Pages/Assignment/bindings/assignment_binding.dart';
+import '../modules/Home_icon_Buttons_Pages/Academic/Pages/Assignment/views/assignment_view.dart';
+import '../modules/Home_icon_Buttons_Pages/Academic/Pages/Exam/bindings/exam_binding.dart';
+import '../modules/Home_icon_Buttons_Pages/Academic/Pages/Exam/views/exam_view.dart';
+import '../modules/Home_icon_Buttons_Pages/Academic/Pages/HomeWork/bindings/home_work_binding.dart';
+import '../modules/Home_icon_Buttons_Pages/Academic/Pages/HomeWork/views/home_work_view.dart';
+import '../modules/Home_icon_Buttons_Pages/Academic/Pages/Report_Card/bindings/report_card_binding.dart';
+import '../modules/Home_icon_Buttons_Pages/Academic/Pages/Report_Card/views/report_card_view.dart';
+import '../modules/Home_icon_Buttons_Pages/Academic/bindings/academic_binding.dart';
+import '../modules/Home_icon_Buttons_Pages/Academic/views/academic_view.dart';
+import '../modules/Home_icon_Buttons_Pages/Attendance/bindings/attendance_binding.dart';
+import '../modules/Home_icon_Buttons_Pages/Attendance/views/attendance_view.dart';
 import '../modules/NavPage/bindings/nav_page_binding.dart';
 import '../modules/NavPage/views/nav_page_view.dart';
 import '../modules/NotificationsPage/bindings/notifications_page_binding.dart';
@@ -75,6 +86,36 @@ class AppPages {
       name: Routes.NOTIFICATIONS_PAGE,
       page: () => const NotificationsPageView(),
       binding: NotificationsPageBinding(),
+    ),
+    GetPage(
+      name: Routes.ACADEMIC,
+      page: () => const AcademicView(),
+      binding: AcademicBinding(),
+    ),
+    GetPage(
+      name: Routes.ATTENDANCE,
+      page: () => const AttendanceView(),
+      binding: AttendanceBinding(),
+    ),
+    GetPage(
+      name: Routes.EXAM,
+      page: () => const ExamView(),
+      binding: ExamBinding(),
+    ),
+    GetPage(
+      name: Routes.HOME_WORK,
+      page: () => const HomeWorkView(),
+      binding: HomeWorkBinding(),
+    ),
+    GetPage(
+      name: Routes.ASSIGNMENT,
+      page: () => const AssignmentView(),
+      binding: AssignmentBinding(),
+    ),
+    GetPage(
+      name: Routes.REPORT_CARD,
+      page: () => const ReportCardView(),
+      binding: ReportCardBinding(),
     ),
   ];
 }
